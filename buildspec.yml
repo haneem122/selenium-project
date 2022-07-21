@@ -4,8 +4,9 @@ phases:
   install:
     on-failure: ABORT
     runtime-versions:
-      java: latest
-
+      java: corretto11
+    commands:
+    - sh install_driver.sh
   pre_build:
     on-failure: ABORT
     commands:
@@ -24,11 +25,10 @@ phases:
     on-failure: ABORT
     commands:
     - echo Build start on 'date'
-    - mvn package
-    - mv target/*.war ROOT.war
+    - mv reports/test-report.html test-report.html
     - echo Build ends on 'date'
 
 artifacts:
   files:
-    - ROOT.war
+    - test-report.html
   name: hello-world-artifact
