@@ -4,7 +4,8 @@ phases:
   install:
     on-failure: ABORT
     runtime-versions:
-      java: leatest
+      java: latest
+
   pre_build:
     on-failure: ABORT
     commands:
